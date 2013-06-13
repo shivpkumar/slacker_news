@@ -1,15 +1,26 @@
-<p> Welcome <%= @user.username %>! Here is all your activity:</p>  
+<p><span id="profile-user">user: </span><%= @user.username %></p>  
 
-<% @user.posts.each do |post| %>
+<div id="profile-posts">
+	<p class="profile-headers">recent posts:</p>
+	<ul id="all-posts">
+	<% @user.posts.reverse.each_with_index do |post, index| %>
+		<li class="single-post">
+			<span class="post-num"><%= index + 1 %>. </span>
+			<span class="post-link"><a href="/posts/<%= post.id %>"><%= post.title %></a></span>
+		</li>
+	<% end %>
+	</ul>
+</div>
 
-<h3>Title: <a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
-<p><%= post.content %></p>
-<% end %>
-
-<h3>Comments</h3>
-
-<% @user.comments.each do |comment| %>
-
-<p><%= comment.comment %></p>
-<p>Title: <a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></p>
-<% end %>
+<div id="profile-comments">
+	<p class="profile-headers">recent comments:</p>
+	<ul id="all-comments">
+		<% @user.comments.reverse.each do |comment| %>
+		  <li class="single-comment">
+			  <span class="comments-post-title"><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></span>
+			  <span class="comments-post-username">(<%= comment.user.username %>)</span>
+			  <p class="comments-comment"><%= comment.comment %></p>
+			</li>
+		<% end %>
+	</ul>
+</div>

@@ -1,7 +1,9 @@
-<h3> Comments </h3>
-
-<% @comments.reverse.each do |comment| %>
-  <p><%= comment.comment %></p>
-  <p><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a>
-  <br>
-<% end %>
+<ul id="all-comments">
+	<% @comments.reverse.each do |comment| %>
+	  <li class="single-comment">
+		  <span class="comments-post-title"><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></span>
+		  <span class="comments-post-username">(<%= comment.user.username %>)</span>
+		  <p class="comments-comment"><%= comment.comment %></p>
+		</li>
+	<% end %>
+</ul>

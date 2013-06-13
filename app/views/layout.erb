@@ -19,13 +19,14 @@
 </head>
 <header>
   <nav>
+    <a class="left-nav" href="/">home</a>
+    <a class="left-nav" href="/comments">comments</a>
+    <a class="left-nav" href="/posts/new">submit</a>
     <% if logged_in? %>
-      <a href="/posts/new">submit</a>
-      <a href="/users/<%= @current_user.id %>">profile</a>
-      <a href="/users/logout">logout</a>
+      <a class = "right-nav" href="/users/<%= @current_user.id %>">profile</a>
+      <a class = "right-nav" href="/users/logout">logout</a>
     <% else %>
-      <a href="/users/new">login</a>
-      <a href="/">Home</a>
+      <a class = "right-nav" href="/users/new">login</a>
     <% end %>
   </nav>
 </header>

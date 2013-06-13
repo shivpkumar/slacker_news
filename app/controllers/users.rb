@@ -3,7 +3,6 @@ get '/users/new' do
 end
 
 post '/users' do
-  params[:user][:username]
   user = User.find_by_username(params[:user][:username])
   
   if user != nil
@@ -11,7 +10,7 @@ post '/users' do
   else
     user = User.create(params[:user])
   end
-  
+
   if user.valid?
     create_session(user)
     redirect "/users/#{user.id}"

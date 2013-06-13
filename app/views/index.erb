@@ -1,5 +1,0 @@
-<h1>Welcome to Slacker News!</h1>
-<% @posts.reverse.each do |post| %>
- <h3>Title: <a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
- <p>Author: <%= post.user.username %></p> 
-<% end %>

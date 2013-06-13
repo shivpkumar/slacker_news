@@ -9,5 +9,5 @@ def logged_in?
 end
 
 def create_session(user)
-  session[:user_id] = user.id if user
+  session[:user_id] = user.id
 end

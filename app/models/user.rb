@@ -1,9 +1,8 @@
-
 class User < ActiveRecord::Base
   has_many :posts 
-  has_many :comments, through: :posts
+  has_many :comments
   validates_uniqueness_of :username
-  validates_presence_of :username
+  validates_presence_of :username, :password_hash
 
   include BCrypt
 
@@ -17,7 +16,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(params)
-    @user = self.find_by_username(params[:username])
-    @user && (@user.password == params[:password]) ? @user : false
+    user = self.find_by_username(params[:username])
+    user && (user.password == params[:password]) ? user : false
   end
 end

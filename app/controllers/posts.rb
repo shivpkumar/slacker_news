@@ -1,13 +1,15 @@
-# global nav: profile link, logout link
-
 get '/' do
   @posts = Post.all
-  erb :index
+  erb :home
 end
 
 get '/posts/new' do
-  @user = current_user
-  erb :create_post
+  if logged_in?
+    @user = current_user
+    erb :create_post
+  else
+    redirect '/users/new'
+  end
 end
 
 get '/posts/:id' do

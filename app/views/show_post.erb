@@ -1,14 +1,24 @@
-<h3>Title: <%= @post.title %></h3>
-<p>Author: <%= @post.user.username %></p>
-<p><%= @post.content %></p>
+<p><span id="post-page-title"><%= @post.title %></span>
+	 <span id="post-page-user"> (<%= @post.user.username %>)</span></p>
 
-<form action="/comments" method="post">
-  <textarea cols="50" rows="5" name="comment" placeholder="share your slacker thoughts" required></textarea>
-  <input type="hidden" name="post_id" value="<%= @post.id %>">
-  <input type="submit" value="submit">
-</form>
+<p id="post-page-content"><%= @post.content %></p>
 
-<h3> Comments </h3>
-<% @post.comments.reverse.each do |comment| %>
-  <p><%= comment.comment %></p>
-<% end %>
+<ul id="comment-form-list">
+	<form id="comment-form" action="/comments" method="post">
+	  <li id="comment-form-comment"><textarea cols="50" rows="5" name="comment" required></textarea></li>
+	  <input type="hidden" name="post_id" value="<%= @post.id %>">
+	  <li id="comment-form-button"><input type="submit" value="add comment"></li>
+	</form>
+</ul>
+
+<div id="comments-page-comments">
+	<p class="comments-headers">all comments:</p>
+	<ul id="all-comments">
+		<% @post.comments.reverse.each do |comment| %>
+		  <li class="single-comment">
+			  <span class="comments-post-username">(<%= comment.user.username %>) </span>
+			  <span class="comments-comment"><%= comment.comment %></span>
+			</li>
+		<% end %>
+	</ul>
+</div>
