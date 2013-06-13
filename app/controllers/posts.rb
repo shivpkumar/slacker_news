@@ -5,14 +5,14 @@ get '/' do
   erb :index
 end
 
-get '/posts/:id' do
-  @post = Post.find(params[:id])
-  erb :show_post
-end
-
 get '/posts/new' do
   @user = current_user
   erb :create_post
+end
+
+get '/posts/:id' do
+  @post = Post.find(params[:id])
+  erb :show_post
 end
 
 post '/posts' do
