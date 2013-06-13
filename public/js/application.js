@@ -30,4 +30,19 @@ $(document).ready(function() {
     });
   });
 
+  $('.post-vote2').on('click', function(e) {
+    e.preventDefault();
+    var post_id = $(this).attr('href');
+    var parent = $(this).closest('p');
+
+    $.ajax({
+      type: 'post',
+      url: '/posts/vote2',
+      data: post_id
+    }).done(function(response) {
+      parent.children('.post-points').remove();
+      parent.append(response);
+    });
+  });
+
 });

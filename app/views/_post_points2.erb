@@ -1,0 +1,1 @@
+<span class="post-points">[<%= PostVote.where('post_id = ?', post_id).count %> <%= (PostVote.where('post_id = ?', post_id).count == 1) ? 'point' : 'points' %>]</span>

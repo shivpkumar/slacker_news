@@ -30,3 +30,10 @@ post '/posts/vote' do
   PostVote.create(user_id: user.id, post_id: post_id)
   erb :_post_points, { layout: false, locals: { post_id: post_id } }
 end
+
+post '/posts/vote2' do
+  post_id = params.keys[0].to_i
+  user = current_user
+  PostVote.create(user_id: user.id, post_id: post_id)
+  erb :_post_points2, { layout: false, locals: { post_id: post_id } }
+end

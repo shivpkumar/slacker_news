@@ -1,6 +1,11 @@
-<p id="post-page-top"><span class="upvote">Δ</span>
-	 <span id="post-page-title"><%= @post.title %></span>
-	 <span id="post-page-user"> (<%= @post.user.username %>)</span></p>
+<p id="post-page-top">
+	<a href="<%= @post.id %>" class="post-vote2">Δ</a>
+	<span id="post-page-title"><%= @post.title %></span>
+	<span id="post-page-user"> (<%= @post.user.username %>)</span>
+	<% post_points = PostVote.where('post_id = ?', @post.id).count %>
+	<% point_s = post_points == 1 ? 'point' : 'points' %>
+	<span class="post-points">[<%= post_points %> <%= point_s %>]</span>
+</p>
 
 <p id="post-page-content"><%= @post.content %></p>
 
@@ -13,12 +18,17 @@
 </ul>
 
 <div id="comments-page-comments">
-	<p class="comments-headers">all comments:</p>
+	<p class="comments-headers">all comments (<%= @post.comments.length %>):</p>
 	<ul id="all-comments">
 		<% @post.comments.reverse.each do |comment| %>
 		  <li class="single-comment">
-			  <span class="upvote">Δ</span>
-			  <span class="comments-post-username">(<%= comment.user.username %>) </span>
+			  <div class="single-comment">
+				  <a href="<%= comment.id %>" class="comment-vote">Δ</a>
+				  <span class="comments-post-username">(<%= comment.user.username %>) </span>
+				  <% comment_points = CommentVote.where('comment_id = ?', comment.id).count %>
+	        <% point_s = comment_points == 1 ? 'point' : 'points' %>
+	        <span class="comment-points">[<%= comment_points %> <%= point_s %>]</span>
+	      </div>
 			  <span class="comments-comment"><%= comment.comment %></span>
 			</li>
 		<% end %>
