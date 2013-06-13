@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :posts 
   has_many :comments
+  has_many :post_votes
+  has_many :comment_votes
   validates_uniqueness_of :username
   validates_presence_of :username, :password_hash
 

@@ -1,9 +1,14 @@
 <ul id="all-comments">
 	<% @comments.reverse.each do |comment| %>
 	  <li class="single-comment">
-		  <span class="upvote">Δ</span>
-      <span class="comments-post-title"><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></span>
-		  <span class="comments-post-username">(<%= comment.user.username %>)</span>
+		  <div class="line-one">
+        <a href="<%= comment.id %>" class="comment-vote">Δ</a>
+        <span class="comments-post-title"><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></span>
+  		  <span class="comments-post-username">(<%= comment.user.username %>)</span>
+        <% comment_points = CommentVote.where('comment_id = ?', comment.id).count %>
+        <% point_s = comment_points == 1 ? 'point' : 'points' %>
+        <span class="comment-points">[<%= comment_points %> <%= point_s %>]</span>
+      </div>
 		  <p class="comments-comment"><%= comment.comment %></p>
 		</li>
 	<% end %>

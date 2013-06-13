@@ -23,3 +23,10 @@ post '/posts' do
   user.posts << post
   redirect "/posts/#{post.id}"
 end
+
+post '/posts/vote' do
+  post_id = params.keys[0].to_i
+  user = current_user
+  PostVote.create(user_id: user.id, post_id: post_id)
+  erb :_post_points, { layout: false, locals: { post_id: post_id } }
+end

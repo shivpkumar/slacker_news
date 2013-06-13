@@ -1,7 +1,33 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('.post-vote').on('click', function(e) {
+    e.preventDefault();
+    var post_id = $(this).attr('href');
+    var parent = $(this).closest('li');
+
+    $.ajax({
+      type: 'post',
+      url: '/posts/vote',
+      data: post_id
+    }).done(function(response) {
+      parent.children('.post-points').remove();
+      parent.append(response);
+    });
+  });
+
+  $('.comment-vote').on('click', function(e) {
+    e.preventDefault();
+    var comment_id = $(this).attr('href');
+    var parent = $(this).closest('div');
+
+    $.ajax({
+      type: 'post',
+      url: '/comments/vote',
+      data: comment_id
+    }).done(function(response) {
+      parent.children('.comment-points').remove();
+      parent.append(response);
+    });
+  });
+
 });

@@ -61,7 +61,14 @@ nav {
   margin-left: 43px;
 }
 
-.upvote {
+.post-vote {
+  color: gray;
+  font-size: 11px;
+  font-weight: 500;
+  margin-right: 2px;
+}
+
+.comment-vote {
   color: gray;
   font-size: 11px;
   font-weight: 500;
@@ -73,7 +80,7 @@ nav {
   font-size: 11px;
 }
 
-.comments-post-username {
+.comments-post-username, .comment-points {
   color: gray;
   font-size: 11px;
 }
