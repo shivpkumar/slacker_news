@@ -17,21 +17,21 @@
 
   <title></title>
 </head>
-<header>
-  <nav>
-    <a class="left-nav" href="/">home</a>
-    <a class="left-nav" href="/comments">comments</a>
-    <a class="left-nav" href="/posts/new">submit</a>
-    <% if logged_in? %>
-      <a class = "right-nav" href="/users/<%= @current_user.id %>">profile</a>
-      <a class = "right-nav" href="/users/logout">logout</a>
-    <% else %>
-      <a class = "right-nav" href="/users/new">login</a>
-    <% end %>
-  </nav>
-</header>
 <body>
-  <div class="container">
+  <div id="container">
+    <header>
+      <a id="logo" class="left-nav" href="/">Slacker News</a>
+      <nav>
+        <a class="left-nav" href="/comments">comments</a>
+        <a class="left-nav" href="/posts/new">submit</a>
+        <% if logged_in? %>
+          <a class = "right-nav" href="/users/logout">logout</a>
+          <a id="username" class = "right-nav" href="/users/<%= @current_user.id %>"><%= @current_user.username %> (1)</a>
+        <% else %>
+          <a class = "right-nav" href="/users/new">login</a>
+        <% end %>
+      </nav>
+    </header>
     <%= yield %>
   </div>
 </body>

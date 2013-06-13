@@ -1,12 +1,16 @@
-<p><span id="profile-user">user: </span><%= @user.username %></p>  
+<p id="profile-user">user: <%= @user.username %></p>  
 
 <div id="profile-posts">
 	<p class="profile-headers">recent posts:</p>
 	<ul id="all-posts">
 	<% @user.posts.reverse.each_with_index do |post, index| %>
 		<li class="single-post">
-			<span class="post-num"><%= index + 1 %>. </span>
-			<span class="post-link"><a href="/posts/<%= post.id %>"><%= post.title %></a></span>
+			<% num = index < 9 ? " #{index + 1}" : "#{index + 1}"%>
+      <span class="post-num"><%= num %>. </span>
+			<span class="upvote">Δ</span>
+			<span class="post-link"><a href="/posts/<%= post.id %>"><%= post.title %></a></span><br>
+			<span class="post-comment-count">[<%= post.comments.length %> comments,</span>
+			<span class="post-points">0 points]</span>
 		</li>
 	<% end %>
 	</ul>
@@ -17,6 +21,7 @@
 	<ul id="all-comments">
 		<% @user.comments.reverse.each do |comment| %>
 		  <li class="single-comment">
+			  <span class="upvote">Δ</span>
 			  <span class="comments-post-title"><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></span>
 			  <span class="comments-post-username">(<%= comment.user.username %>)</span>
 			  <p class="comments-comment"><%= comment.comment %></p>

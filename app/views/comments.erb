@@ -1,7 +1,8 @@
 <ul id="all-comments">
 	<% @comments.reverse.each do |comment| %>
 	  <li class="single-comment">
-		  <span class="comments-post-title"><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></span>
+		  <span class="upvote">Δ</span>
+      <span class="comments-post-title"><a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></span>
 		  <span class="comments-post-username">(<%= comment.user.username %>)</span>
 		  <p class="comments-comment"><%= comment.comment %></p>
 		</li>

@@ -1,9 +1,18 @@
+
+
 <ul id="all-posts">
 	<% @posts.reverse.each_with_index do |post, index| %>
 		<li class="single-post">
-			<span class="post-num"><%= index + 1 %>. </span>
+			<% num = index < 9 ? " #{index + 1}" : "#{index + 1}"%>
+      <span class="post-num"><%= num %>. </span>
+      <span class="upvote">Δ</span>
 			<span class="post-link"><a href="/posts/<%= post.id %>"><%= post.title %></a></span>
-			<span class="post-username">(<%= post.user.username %>)</span>
+			<span class="post-username">(<%= post.user.username %>)</span><br>
+      <span class="post-comment-count">[<%= post.comments.length %> comments,</span>
+      <span class="post-points">0 points]</span>
 		</li>
 	<% end %>
 </ul>
+
+
+

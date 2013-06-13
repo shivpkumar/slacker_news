@@ -1,9 +1,135 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+#container {
+  width: 80%;
+  margin: 10px auto 0 auto;
+  background-color: #f6f6ef;
+  font-family: Verdana;
+  font-size: 13px;
 }
-th {
-  text-align: left;
+
+header {
+  height: 25px;
+  background-color: #ff6600;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 0 0 15px;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+#logo {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 5px 0 8px;
+}
+
+nav {
+  padding: 5px 8px 0 8px;
+}
+
+.left-nav {
+  float: left;
+  margin-right: 20px;
+}
+
+.right-nav {
+  float: right;
+  margin-left: 20px;
+}
+
+.post-num {
+  color: gray;
+  font-weight: 500;
+  white-space: pre;
+}
+
+.post-username, .post-comment-count, .post-points {
+  color: gray;
+  font-size: 11px;
+}
+
+.post-comment-count {
+  margin-left: 43px;
+}
+
+.upvote {
+  color: gray;
+  font-size: 11px;
+  font-weight: 500;
+  margin-right: 2px;
+}
+
+.comments-post-title a {
+  color: gray;
+  font-size: 11px;
+}
+
+.comments-post-username {
+  color: gray;
+  font-size: 11px;
+}
+
+.comments-comment {
+  margin: 2px 0 0 15px;
+}
+
+#login-form-lis {
+  margin: 20px 0 0 20px;
+  padding-bottom: 800px;
+}
+
+#profile-user, .profile-headers {
+  color: gray;
+}
+
+#profile-comments {
+  padding-bottom: 600px;
+}
+
+#post-form-list {
+  padding-bottom: 800px;
+}
+
+#post-page-title, #post-page-user {
+  color: gray;
+}
+
+#post-page-user {
+  font-size: 11px;
+}
+
+#post-page-top {
+  margin-bottom: 0;
+}
+
+#post-page-content {
+  margin: 0 0 0 15px;
+}
+
+.comments-headers {
+  color: gray;
+}
+
+#comments-page-comments {
+  padding-bottom: 800px;
+}
+
+
+
+
+
+
+
+
+
+
+
