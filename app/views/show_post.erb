@@ -24,7 +24,8 @@
 		  <li class="single-comment">
 			  <div class="single-comment">
 				  <a href="<%= comment.id %>" class="comment-vote">Δ</a>
-				  <span class="comments-post-username">(<%= comment.user.username %>) </span>
+				  <% username = Post.find(comment.post.id).user.username %>
+				  <span class="comments-post-username">(<%= username %>) </span>
 				  <% comment_points = CommentVote.where('comment_id = ?', comment.id).count %>
 	        <% point_s = comment_points == 1 ? 'point' : 'points' %>
 	        <span class="comment-points">[<%= comment_points %> <%= point_s %>]</span>
