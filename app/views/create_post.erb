@@ -1,0 +1,6 @@
+<form action="/posts" method="post">
+  <input type="text" name="post[title]" placeholder="catchy title" required>
+  <textarea cols="80" rows="5" name="post[content]" placeholder="share your slacker thoughts" required></textarea>
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
+  <input type="submit" value="create post">
+</form>

@@ -2,6 +2,8 @@
 class User < ActiveRecord::Base
   has_many :posts 
   has_many :comments, through: :posts
+  validates_uniqueness_of :username
+  validates_presence_of :username, :email
 
   include BCrypt
 

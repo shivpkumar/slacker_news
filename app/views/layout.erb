@@ -17,7 +17,16 @@
 
   <title></title>
 </head>
+<header>
+  <nav>
+    <% if logged_in? %>
+      <a href="/posts/new">submit</a>
+    <% end %>
+  </nav>
+</header>
 <body>
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

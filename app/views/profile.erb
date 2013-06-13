@@ -1,0 +1,15 @@
+<p> Welcome <%= @user.username %>! Here is all your activity:</p>  
+
+<% @user.posts.each do |post| %>
+
+<h3>Title: <a href="/posts/<%= post.id %>"><%= post.title %></a></h3>
+<p><%= post.content %></p>
+<% end %>
+
+<h3>Comments</h3>
+
+<% @user.comments.each do |comment| %>
+
+<p><%= comment.comment %></p>
+<p>Title: <a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a></p>
+<% end %>
