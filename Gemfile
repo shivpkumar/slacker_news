@@ -1,6 +1,6 @@
 source :rubygems
 
-ruby "1.9.3"
+ruby '1.9.3'
 
 # PostgreSQL driver
 gem 'pg'
@@ -27,3 +27,5 @@ group :test do
   gem 'faker'
   gem 'rspec'
 end
+
+gem 'rspec'
