@@ -1,5 +1,7 @@
 source :rubygems
 
+ruby "1.9.3"
+
 # PostgreSQL driver
 gem 'pg'
 
@@ -17,9 +19,9 @@ gem 'rake'
 
 gem 'shotgun'
 
-require 'faker'
+gem 'faker'
 
-require 'bcrypt'
+gem 'bcrypt-ruby'
 
 group :test do
   gem 'faker'
